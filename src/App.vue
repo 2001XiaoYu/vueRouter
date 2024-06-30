@@ -5,6 +5,8 @@
       <router-link to="/home" replace active-class="active">首页</router-link>
       <!-- <router-link :to="{ path: '/home'}">首页</router-link> -->
       <router-link to="/about" replace active-class="active">关于</router-link>
+      <router-link to="/user/123" replace active-class="active">用户123</router-link>
+      <router-link to="/user/321" replace active-class="active">用户321</router-link>
     </div>
     <router-view></router-view>
   </div>
