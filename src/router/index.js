@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 
 // import Home from '../views/Home.vue'
 // import About from '../views/About.vue'
@@ -14,28 +14,48 @@ const router = createRouter({
     history: createWebHashHistory(),
     // history: createWebHistory(),
     routes: [
-        { 
-            path: "/", 
-            redirect: "/home" 
+        {
+            path: "/",
+            redirect: "/home"
         },
-        { 
+        {
             name: "home",
-            path: "/home", 
+            path: "/home",
             component: () => import(/* webpackChunkName: 'home' */"../views/Home.vue"),
             meta: {
                 name: "patrickstar",
                 age: 23
-            }
+            },
+            children: [
+                {
+                    path: "/home",
+                    redirect: "/home/recommend"
+                },
+                {
+                    path: "recommend", // /home/recommend
+                    component: () => import("../views/HomeRecommend.vue")
+
+                },
+                {
+                    path: "ranking",
+                    component: () => import("../views/HomeRanking.vue")
+                }
+            ]
         },
-        { 
+        {
             name: "about",
-            path: "/about", 
+            path: "/about",
             component: () => import(/* webpackChunkName: 'about' */"../views/About.vue")
- 
+
         },
         {
             path: "/user/:id",
             component: () => import("../views/User.vue")
+        },
+        {
+            // 如果匹配到任何一个不存在的路径，那么就自动显示下面的这个组件
+            path: "/:pathMatch(.*)",
+            component: () => import("../views/NotFound.vue")
         }
     ]
 })
