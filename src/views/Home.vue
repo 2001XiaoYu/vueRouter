@@ -6,6 +6,8 @@
             <router-link to="/home/ranking">排行</router-link>
         </div>
 
+        <button @click="logoutClick">退出登录</button>
+
         <!-- 占位组件 -->
         <router-view></router-view>
     </div>
@@ -13,6 +15,9 @@
 
 <script setup>
 
+    function logoutClick() {
+        localStorage.removeItem("token")
+    }
 </script>
 
 <style scoped>

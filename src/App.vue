@@ -6,8 +6,9 @@
       <!-- <router-link :to="{ path: '/home'}">首页</router-link> -->
       <router-link to="/about" replace active-class="active">关于</router-link>
 
-      <router-link to="/user/123">用户123</router-link>
-      <router-link to="/user/321">用户321</router-link>
+      <router-link to="/user/123" active-class="active">用户123</router-link>
+      <router-link to="/user/321" active-class="active">用户321</router-link>
+      <router-link to="/order" active-class="active">订单</router-link>
 
       <!-- 其他元素的跳转 -->
       <span @click="homeSpanClick">首页</span>
